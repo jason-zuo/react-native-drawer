@@ -1,31 +1,9 @@
-
-### USAGE WARNING
-This module is not as performant as it should be. For production applications we generally recommend using either [React Native Side Menu](https://github.com/react-native-community/react-native-side-menu) or [React Navigation](https://github.com/react-navigation/react-navigation) as applicable. React Native Drawer will continue to be available and potentially useful for its high customizability but again it is **not** recommended for production appliciations. If you are interested in revamping react native drawer to be more performant (i.e. use Animated) please get in touch!
-
-
-## React Native Drawer
-<img width="220px" align="right" src="https://raw.githubusercontent.com/rt2zz/react-native-drawer/master/examples/rn-drawer.gif" />
-
-React native drawer, configurable to achieve material design style, slack style, parallax, and more. Works in both iOS and Android.
-
-[![npm version](https://img.shields.io/npm/v/react-native-drawer.svg?style=flat-square)](https://www.npmjs.com/package/react-native-drawer)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-drawer.svg?style=flat-square)](https://www.npmjs.com/package/react-native-drawer)
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Examples](#examples)
-- [Props](#props)
-- [Demo](#demo)
-- [Credits](#credits)
-
-### Installation
-`npm install --save react-native-drawer`
-
+针对该包进行修改，加入另一个变量去除唯一限制点击抽屉消失的变量命名为canTouchOtherClose默认为true
 ### Usage
 ```javascript
 import Drawer from 'react-native-drawer'
 
-class Application extends Component {  
+class Application extends Component {
   closeControlPanel = () => {
     this._drawer.close()
   };
@@ -147,7 +125,7 @@ Will result in a skewed fade out animation.
 ### Opening & Closing the Drawer Programmatically
 Three options:
 
-1. Use the open prop (controlled mode):  
+1. Use the open prop (controlled mode):
 
     ```js
     <Drawer

@@ -38,6 +38,7 @@ export default class Drawer extends Component {
   static propTypes = {
     acceptDoubleTap: PropTypes.bool,
     acceptPan: PropTypes.bool,
+    canTouchOtherClose: PropTypes.bool,
     acceptTap: PropTypes.bool,
     acceptPanOnDrawer: PropTypes.bool,
     captureGestures: PropTypes.oneOf([true, false, 'open', 'closed']),
@@ -93,6 +94,7 @@ export default class Drawer extends Component {
     acceptDoubleTap: false,
     acceptTap: false,
     acceptPan: true,
+    canTouchOtherClose: true,
     acceptPanOnDrawer: true,
     tapToClose: false,
 
@@ -271,7 +273,7 @@ export default class Drawer extends Component {
 
   onPanResponderMove = (e, gestureState) => {
     let delta = this.getGestureDelta(gestureState);
-    if (!this.props.acceptPan) return false
+    if (!this.props.acceptPan && !this.props.canTouchOtherClose) return false
 
     //Do nothing if we are panning the wrong way
     if (this._open ^ delta < 0 ^ this.isRightOrBottomSide()) return false
